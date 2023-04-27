@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  db:
+    container_name: db_mysql
+    image: mysql:8.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+
+  backend:
+    container_name: backend_django
+    build:
+      context: ./backend
+      dockerfile: Dockerfile_back
+    volumes:
+      - ./backend:/workspace
+    tty: true
+    stdin_open: true
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  frontend:
+    container_name: frontend_react
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile_front
+    volumes:
+      - ./frontend:/workspace
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
+    stdin_open: true
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql_data:

@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  // Dockerfileでイメージ・コンテナを作成
+  "dockerComposeFile": "../docker-compose.yml",
+  // VS Codeのワークスペースフォルダ
+  "workspaceFolder": "/workspace",
+  // 使用するサービス
+  "service": "frontend",
+  // リモート先のVS Codeにインストールする拡張機能
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    " VisualStudioExptTeam.vscodeintellicode",
+    "christian-kohler.path-intellisense",
+    "oderwat.indent-rainbow",
+    "formulahendry.auto-rename-tag",
+    "vscode-icons-team.vscode-icons",
+    "MariusAlchimavicius.json-to-ts",
+    "wix.vscode-import-cost",
+    "donjayamanne.githistory"
+    // "ms-vscode-remote.remote-wsl",
+    // "MS-vsliveshare.vsliveshare",
+    // "mhutchie.git-graph",
+  ],
+  "shutdownAction": "stopCompose",
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+}

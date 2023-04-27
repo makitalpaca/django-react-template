@@ -1,0 +1,28 @@
+# ベースイメージ
+FROM python:3
+
+# 作業ディレクトリの指定
+WORKDIR /workspace
+
+# 環境変数の指定
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# # 必要なパッケージのインストール
+# RUN apt-get update && apt-get install -y \
+#     npm \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
+
+# Pythonパッケージのインストール
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+# # React.jsのインストール
+# RUN apk add --update npm
+# RUN npm install -g create-react-app
+# RUN create-react-app frontend
+
+# プロジェクトファイルのコピー
+# COPY . /workspace/

@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  // Dockerfileでイメージ・コンテナを作成
+  "dockerComposeFile": "../docker-compose.yml",
+  // VS Codeのワークスペースフォルダ
+  "workspaceFolder": "/workspace",
+  // 使用するサービス
+  "service": "backend",
+  // リモート先のVS Codeにインストールする拡張機能
+  "extensions": ["ms-python.python", "mhutchie.git-graph", "oderwat.indent-rainbow"],
+  "shutdownAction": "stopCompose",
+  "settings": {
+    "python.formatting.provider": "black",
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": true
+  }
+}
