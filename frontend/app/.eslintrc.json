@@ -37,9 +37,13 @@
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
-    // "tsconfigRootDir": ".",
-    "tsconfigRootDir": "app",
+    // "parser": "@typescript-eslint/parser",
+    "tsconfigRootDir": ".",
+    // "tsconfigRootDir": "app",
+    // 'tsconfigRootDir': __dirname,
     "project": ["./tsconfig.json"],
+    // "project": "tsconfig.json",
+    // "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true,
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "jest", "jsx-a11y", "react", "react-hooks"],
