@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { ThemeSwitchButton } from '../Theme/ThemeSwitchButton';
 import { SidebarData } from './SidebarData';
 import SidebarMenu from './SidebarMenu';
 
@@ -58,6 +59,7 @@ const Sidebar: FC = () => {
           {SidebarData.map((item, index) => {
             return <SidebarMenu item={item} key={index} />;
           })}
+          <ThemeSwitchButton />
         </SidebarWrap>
       </SidebarNav>
     </>

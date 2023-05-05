@@ -1,6 +1,6 @@
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { type SidebarItem } from '../models/SidebarItem';
+import { type SidebarItem } from './SidebarItem';
 
 export const SidebarData: SidebarItem[] = [
   {

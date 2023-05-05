@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { type SidebarItem } from '../models/SidebarItem';
+import { type SidebarItem } from './SidebarItem';
 
 type SidebarMenuProps = {
   item: SidebarItem;
