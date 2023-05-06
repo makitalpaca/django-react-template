@@ -29,14 +29,16 @@ export const theme: Theme = {
 const LIGHT_THEME: Theme = {
   base: {
     color: '#191919',
-    background: 'white',
+    // background: 'white',
+    background: '#e0e0e0',
   },
 };
 
 const DARK_THEME: Theme = {
   base: {
     color: 'white',
-    background: '#101010',
+    // background: '#101010',
+    background: '#0a1929',
   },
 };
 
