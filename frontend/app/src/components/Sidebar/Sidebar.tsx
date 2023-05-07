@@ -14,7 +14,7 @@ const Nav = styled.div`
   justify-content: frex-start;
   align-items: center;
   height: 5rem;
-  background-color: black;
+  // background-color: black;
 `;
 
 const NavIcon = styled(Link)`
@@ -29,7 +29,7 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.div<{ sidebar: boolean }>`
   width: 250px;
   height: 100vh;
-  background-color: black;
+  // background-color: black;
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};

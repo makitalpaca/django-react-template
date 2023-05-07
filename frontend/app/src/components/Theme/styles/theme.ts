@@ -30,7 +30,8 @@ const LIGHT_THEME: Theme = {
   base: {
     color: '#191919',
     // background: 'white',
-    background: '#e0e0e0',
+    // background: '#e0e0e0',
+    background: '#e4e9f7',
   },
 };
 
