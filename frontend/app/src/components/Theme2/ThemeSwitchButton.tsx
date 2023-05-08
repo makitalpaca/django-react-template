@@ -126,19 +126,13 @@
 //   }
 // `;
 
-import { type FC, useContext } from 'react';
-// import tw, { css, styled } from 'twin.macro';
+import { type FC } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, ThemeContext } from './themeContext';
+import { useTheme } from './themeContext';
 
 // import BlogCard from '../blogCard';
 
 // propsでEmotionProviderのthemeを受け取ることができる
-// const Container = styled.div`
-//   height: 100%;
-//   background: ${(props) => props.theme.background};
-//   color: ${(props) => props.theme.text};
-// `;
 const Container = styled.div`
   display: flex;
   align-items: center;

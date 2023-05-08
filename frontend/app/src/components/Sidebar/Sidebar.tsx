@@ -1,11 +1,13 @@
 import { useState, type FC } from 'react';
+import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { ThemeSwitchButton } from '../Theme/ThemeSwitchButton';
+// import { ThemeSwitchButton } from '../Theme2/ThemeSwitchButton';
+import { useTheme } from '../Theme2/themeContext';
 import { SidebarData } from './SidebarData';
 import SidebarMenu from './SidebarMenu';
 
@@ -14,7 +16,7 @@ const Nav = styled.div`
   justify-content: frex-start;
   align-items: center;
   height: 5rem;
-  // background-color: black;
+  background-color: ${(props) => props.theme.secondary};
 `;
 
 const NavIcon = styled(Link)`
@@ -29,13 +31,22 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.div<{ sidebar: boolean }>`
   width: 250px;
   height: 100vh;
-  // background-color: black;
+  background-color: ${(props) => props.theme.secondary};
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
+  color: ${(props) => props.theme.text};
 `;
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  background: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
+`;
 const SidebarWrap = styled.div``;
 
 const Sidebar: FC = () => {
@@ -44,11 +55,22 @@ const Sidebar: FC = () => {
     setSidebar(!sidebar);
   };
 
+  const { colorMode, setColorMode } = useTheme();
+
+  // console.log(${ props });
+  // const iconColor = ${(props) => props.theme.background};
+  // console.log(iconColor);
+  // const styles = { color: (props) => props.theme.text };
+  const st1 = styled.div`
+    ${(props) => props.theme.icon};
+  `;
+
   return (
     <>
       <Nav>
         <NavIcon to="#" onClick={showSidebar}>
-          <MenuIcon style={{ color: 'white' }} />
+          {/* <MenuIcon style={{ color: 'white' }} /> */}
+          <MenuIcon sx={{ color: st1 }} />
         </NavIcon>
       </Nav>
       <SidebarNav sidebar={sidebar}>
@@ -59,9 +81,11 @@ const Sidebar: FC = () => {
           {SidebarData.map((item, index) => {
             return <SidebarMenu item={item} key={index} />;
           })}
-          <ThemeSwitchButton />
+          {/* <ThemeSwitchButton /> */}
+          <button onClick={setColorMode}>THEME CHANGE !</button>
         </SidebarWrap>
       </SidebarNav>
+      <Container>あー</Container>
     </>
   );
 };

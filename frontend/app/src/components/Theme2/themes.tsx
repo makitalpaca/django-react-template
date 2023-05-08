@@ -1,22 +1,25 @@
 interface ThemeType {
   primary: string;
-  secundary: string;
+  secondary: string;
   background: string;
   text: string;
+  icon: string;
 }
 
 const lightTheme: ThemeType = {
-  primary: '#ffffff',
-  secundary: '#ffffff',
-  background: '#e4e9f7',
-  text: '#191919',
+  primary: '#2064bc',
+  secondary: '#f2f2f2',
+  background: 'white',
+  text: 'black',
+  icon: 'black',
 };
 
 const darkTheme: ThemeType = {
-  primary: '#ffffff',
-  secundary: '#ffffff',
-  background: '#0a1929',
+  primary: '#6aa9e8',
+  secondary: '#222222',
+  background: 'black',
   text: 'white',
+  icon: 'white',
 };
 
 export const getTheme = (colorMode: string): ThemeType => {

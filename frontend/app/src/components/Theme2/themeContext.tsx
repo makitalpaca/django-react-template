@@ -33,7 +33,6 @@ interface ThemeContextType {
 // コンテキストのデフォルト値
 const defaultContext: ThemeContextType = {
   colorMode: 'light',
-  // colorMode: 'dark',
   setColorMode: () => {}, // eslint-disable-line
 };
 
