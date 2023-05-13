@@ -7,6 +7,19 @@ type SidebarMenuProps = {
   item: SidebarItem;
 };
 
+export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
+  return (
+    <>
+      <SidebarLink to={item.path}>
+        <div>
+          {item.icon}
+          <SidebarLabel>{item.title}</SidebarLabel>
+        </div>
+      </SidebarLink>
+    </>
+  );
+};
+
 const SidebarLink = styled(Link)`
   display: flex;
   justify-content: space-between;
@@ -26,19 +39,5 @@ const SidebarLink = styled(Link)`
 
 const SidebarLabel = styled.span`
   margin-left: 0.8rem;
+  width: ${({ sidebar }) => (sidebar ? '0' : '0')};
 `;
-
-const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
-  return (
-    <>
-      <SidebarLink to={item.path}>
-        <div>
-          {item.icon}
-          <SidebarLabel>{item.title}</SidebarLabel>
-        </div>
-      </SidebarLink>
-    </>
-  );
-};
-
-export default SidebarMenu;

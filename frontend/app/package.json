@@ -51,6 +51,7 @@
     "lint-staged": "^13.2.2",
     "npm-check-updates": "^16.10.9",
     "prettier": "^2.8.8",
+    "react-icons": "^4.8.0",
     "react-router-dom": "^6.10.0",
     "simple-git-hooks": "^2.8.1",
     "styled-components": "^5.3.10",
