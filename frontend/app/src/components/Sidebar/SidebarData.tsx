@@ -1,28 +1,48 @@
-import HomeIcon from '@mui/icons-material/Home';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { AiOutlineDashboard } from 'react-icons/ai';
+import { GiCampfire } from 'react-icons/gi';
+import { IoMdSettings } from 'react-icons/io';
+import { MdSpaceDashboard } from 'react-icons/md';
+// import HomeIcon from '@mui/icons-material/Home';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import { type SidebarItem } from './SidebarItem';
 
 export const SidebarData: SidebarItem[] = [
   {
-    title: 'Overview',
-    path: '/overview',
-    icon: <HomeIcon />,
-    iconClosed: <HomeIcon />,
-    iconOpend: <HomeIcon />,
+    title: 'Dashborad',
+    path: '/dashboard',
+    icon: <AiOutlineDashboard />,
+    iconClosed: <AiOutlineDashboard />,
+    iconOpend: <AiOutlineDashboard />,
     subNav: [
       {
         title: 'Users',
-        path: '/overview/users',
-        icon: <HomeIcon />,
+        path: '/dashboard/users',
+        icon: <AiOutlineDashboard />,
       },
     ],
   },
   {
+    title: 'Contents',
+    path: '/contents',
+    icon: <MdSpaceDashboard />,
+    iconClosed: <AiOutlineDashboard />,
+    iconOpend: <AiOutlineDashboard />,
+    // subNav: [],
+  },
+  {
+    title: 'Pareo',
+    path: '/pareo',
+    icon: <GiCampfire />,
+    iconClosed: <GiCampfire />,
+    iconOpend: <GiCampfire />,
+    // subNav: [],
+  },
+  {
     title: 'Settings',
     path: '/settings',
-    icon: <SettingsIcon />,
-    iconClosed: <SettingsIcon />,
-    iconOpend: <SettingsIcon />,
+    icon: <IoMdSettings />,
+    iconClosed: <IoMdSettings />,
+    iconOpend: <IoMdSettings />,
     // subNav: [],
   },
 ];

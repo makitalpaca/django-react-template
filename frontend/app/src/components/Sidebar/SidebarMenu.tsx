@@ -11,33 +11,59 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
   return (
     <>
       <SidebarLink to={item.path}>
-        <div>
-          {item.icon}
-          <SidebarLabel>{item.title}</SidebarLabel>
+        {/* <div className="sidebar-main-menu"> */}
+        <div className="sidebar-main-menu-item">
+          <div className="sidebar-main-menu-icon">{item.icon}</div>
+          <div className="sidebar-main-menu-label">{item.title}</div>
         </div>
+        {/* </div> */}
       </SidebarLink>
     </>
   );
 };
 
 const SidebarLink = styled(Link)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 3.75rem;
-  font-size: 1.125rem;
-  padding: 2rem;
-  text-decoration: none;
-  // color: white;
+  // .sidebar-main-menu {
+  overflow: hidden scroll;
 
-  &:hover {
-    background-color: #1f1f1b;
-    border-left: 4px solid #6d44dc;
+  & .sidebar-main-menu-item {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600; // semi-bold
     cursor: pointer;
-  }
-`;
+    border-radius: 5px;
+    margin: 10px 0;
 
-const SidebarLabel = styled.span`
-  margin-left: 0.8rem;
-  width: ${({ sidebar }) => (sidebar ? '0' : '0')};
+    & .sidebar-main-menu-icon {
+      // display: inline-block;
+      // width: 40px;
+      // font-size: 25px;
+      // line-height: 40px;
+      // text-align: center;
+      // padding-top: 3px;
+      display: inline-flex;
+      height:40px;
+      width: 40px;
+      font-size: 25px;
+      justify-content:center;
+      align-items:center;
+    }
+
+    & .sidebar-main-menu-label {
+      // position: absolute;
+      // display: inline-block;
+      // line-height: 40px;
+      // padding-left: 20px;
+      position:absolute;
+      display: inline-flex;
+      height:40px;
+      align-items:center;
+      padding-left: 20px;
+    }
+
+    &:hover {
+      background-color:#333;
+  }
+  // }
 `;
