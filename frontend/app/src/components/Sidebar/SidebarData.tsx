@@ -2,8 +2,6 @@ import { AiOutlineDashboard } from 'react-icons/ai';
 import { GiCampfire } from 'react-icons/gi';
 import { IoMdSettings } from 'react-icons/io';
 import { MdSpaceDashboard } from 'react-icons/md';
-// import HomeIcon from '@mui/icons-material/Home';
-// import SettingsIcon from '@mui/icons-material/Settings';
 import { type SidebarItem } from './SidebarItem';
 
 export const SidebarData: SidebarItem[] = [

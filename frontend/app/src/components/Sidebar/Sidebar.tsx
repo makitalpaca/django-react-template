@@ -9,8 +9,8 @@ import {
 import logo from '../../assets/yadon.png';
 import { SidebarData } from './SidebarData';
 import { SidebarMenu } from './SidebarMenu';
-// import { ThemeSwitchButton } from '../Theme2/ThemeSwitchButton';
-// import { useTheme } from '../Theme2/themeContext';
+// import { ThemeSwitchButton } from '../Theme/ThemeSwitchButton';
+// import { useTheme } from '../Theme/themeContext';
 
 export const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -148,7 +148,7 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     height: 1px;
     border-radius: 1px;
     background: #333;
-    margin-bottom: 10px;
+    margin-top: 300px;
     bottom: 0;
   }
 
