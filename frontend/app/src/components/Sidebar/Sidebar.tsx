@@ -6,16 +6,14 @@ import {
   AiOutlineMenuFold,
   AiOutlineSearch,
 } from 'react-icons/ai';
+import { ThemeSwitchButton } from 'components/Theme/ThemeSwitchButton';
 import logo from '../../assets/yadon.png';
 
-// import { ThemeSwitchButton } from '../Theme/ThemeSwitchButton';
-// import { useTheme } from '../Theme/themeContext';
 import { SidebarData } from './SidebarData';
 import { SidebarMenu } from './SidebarMenu';
 
 export const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
-  // const { colorMode, setColorMode } = useTheme();
 
   const showSidebar = () => {
     setSidebar(!sidebar);
@@ -43,12 +41,11 @@ export const Sidebar: FC = () => {
         <div className="sidebar-up-driver"></div>
         <div className="sidebar-menu">
           {SidebarData.map((item, index) => {
-            // return <SidebarMenu item={item} key={index} theme={setColorMode} />;
             return <SidebarMenu item={item} key={index} />;
           })}
         </div>
 
-        {/* <ThemeSwitchButton /> */}
+        <ThemeSwitchButton />
         {/* <button onClick={setColorMode}>theme!</button> */}
 
         <div className="sidebar-low-driver"></div>
@@ -68,8 +65,8 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
   position: fixed;
   top: 0;
   transition: 250ms;
-  background-color: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.text};
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
   box-sizing: border-box;
   padding: 30px 20px;
 
@@ -77,7 +74,7 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     display: flex;
     margin-left: 5px;
     cursor: pointer;
-    icon-color: ${({ theme }) => theme.icon};
+    icon-color: ${(props) => props.theme.icon};
   }
 
   & .top-section {
@@ -114,7 +111,7 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
   }
 
   & .sidebar-menu {
-    color: ${({ theme }) => theme.text};
+    color: ${(props) => props.theme.text};
   }
 
   & .sidebar-up-driver {

@@ -2,7 +2,7 @@ import { type FC } from 'react';
 import styled from '@emotion/styled';
 
 import './App.css';
-import { ThemeProvider } from 'components/Theme/themeProvider';
+// import { ThemeProvider } from 'components/Theme/themeProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { ThemeSwitchButton } from 'components/Theme/ThemeSwitchButton';
 import { Sidebar } from './components/Sidebar/Sidebar';
@@ -16,17 +16,21 @@ const App: FC = () => {
 
   return (
     <>
-      <ThemeProvider>
-        <BrowserRouter>
-          <Sidebar />
-          <button onClick={setColorMode}>toggle color mode</button>
-          <Toggle>{colorMode}</Toggle>
-          <Routes>
-            <Route path="/overview" element={<Overview />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+      {/* <ThemeProvider> */}
+      <BrowserRouter>
+        <Sidebar />
+        <Toggle>
+          <button onClick={setColorMode}>toggle</button>
+          {colorMode}
+          {/* <ThemeSwitchButton /> */}
+        </Toggle>
+
+        <Routes>
+          <Route path="/overview" element={<Overview />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </BrowserRouter>
+      {/* </ThemeProvider> */}
     </>
   );
 };
@@ -36,4 +40,5 @@ export default App;
 const Toggle = styled.div`
   display: flex;
   justify-content: center;
+  // background: ${(props) => props.theme.background};
 `;
