@@ -5,8 +5,10 @@ import { type SidebarItem } from './SidebarItem';
 
 type SidebarMenuProps = {
   item: SidebarItem;
+  // theme: any;
 };
 
+// export const SidebarMenu: FC<SidebarMenuProps> = ({ item, theme }) => {
 export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
   return (
     <>
@@ -15,6 +17,7 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
         <div className="sidebar-main-menu-item">
           <div className="sidebar-main-menu-icon">{item.icon}</div>
           <div className="sidebar-main-menu-label">{item.title}</div>
+          {/* <div>{theme.icon}</div> */}
         </div>
         {/* </div> */}
       </SidebarLink>
@@ -27,7 +30,7 @@ const SidebarLink = styled(Link)`
   overflow: hidden scroll;
 
   & .sidebar-main-menu-item {
-    color: white;
+    color: red;
     font-size: 15px;
     text-decoration: none;
     font-weight: 600; // semi-bold

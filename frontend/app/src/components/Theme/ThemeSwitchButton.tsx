@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 import { useTheme } from './themeContext';
 
 export const ThemeSwitchButton: FC = () => {
@@ -7,22 +7,16 @@ export const ThemeSwitchButton: FC = () => {
 
   return (
     <>
-      <Container>
-        <p>
-          current color mode:
-          {colorMode}
-        </p>
-        <button onClick={setColorMode}>toggle color mode</button>
-      </Container>
+      <button onClick={setColorMode}>theme!</button>
     </>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vh;
-  background: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.text};
-`;
+// const Container = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 30vh;
+//   background: ${(props) => props.theme.primary};
+//   color: ${(props) => props.theme.text};
+// `;

@@ -1,25 +1,25 @@
 import { useState, type FC } from 'react';
 import styled from '@emotion/styled';
+
 import {
   AiOutlineMenuUnfold,
   AiOutlineMenuFold,
   AiOutlineSearch,
 } from 'react-icons/ai';
-
 import logo from '../../assets/yadon.png';
-import { SidebarData } from './SidebarData';
-import { SidebarMenu } from './SidebarMenu';
+
 // import { ThemeSwitchButton } from '../Theme/ThemeSwitchButton';
 // import { useTheme } from '../Theme/themeContext';
+import { SidebarData } from './SidebarData';
+import { SidebarMenu } from './SidebarMenu';
 
 export const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
-  // const [sidebar, setSidebar] = useState(true);
+  // const { colorMode, setColorMode } = useTheme();
+
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
-
-  // const { colorMode, setColorMode } = useTheme();
 
   return (
     <>
@@ -27,14 +27,12 @@ export const Sidebar: FC = () => {
         {/* eslint-disable-next-line */}
         <div onClick={showSidebar} className="sidebar-open">
           {sidebar ? (
-            <AiOutlineMenuFold color="white" size="2rem" />
+            <AiOutlineMenuFold color="icon-color" size="2rem" />
           ) : (
-            <AiOutlineMenuUnfold color="white" size="2rem" />
+            <AiOutlineMenuUnfold color="icon-color" size="2rem" />
           )}
         </div>
-
         <div className="top-section"></div>
-
         <div className="search-frm">
           <button className="search-btn">
             <AiOutlineSearch color="white" size="1.5rem" />
@@ -42,25 +40,24 @@ export const Sidebar: FC = () => {
 
           <input type="text" placeholder="search" className="search-txt" />
         </div>
-
         <div className="sidebar-up-driver"></div>
+        <div className="sidebar-menu">
+          {SidebarData.map((item, index) => {
+            // return <SidebarMenu item={item} key={index} theme={setColorMode} />;
+            return <SidebarMenu item={item} key={index} />;
+          })}
+        </div>
 
-        {SidebarData.map((item, index) => {
-          return <SidebarMenu item={item} key={index} />;
-        })}
         {/* <ThemeSwitchButton /> */}
-        {/* <button onClick={setColorMode}>THEME CHANGE !</button> */}
+        {/* <button onClick={setColorMode}>theme!</button> */}
 
         <div className="sidebar-low-driver"></div>
-
         <div className="sidebar-foot">
           <div className="logo">
             <img src={logo} className="logo-img" alt="logo-img" />
           </div>
         </div>
       </SidebarNav>
-
-      {/* <Container>あー</Container> */}
     </>
   );
 };
@@ -71,9 +68,8 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
   position: fixed;
   top: 0;
   transition: 250ms;
-  // background-color: ${(props) => props.theme.secondary};
-  background-color: black;
-  // color: ${(props) => props.theme.text};
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
   box-sizing: border-box;
   padding: 30px 20px;
 
@@ -81,11 +77,11 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     display: flex;
     margin-left: 5px;
     cursor: pointer;
+    icon-color: ${({ theme }) => theme.icon};
   }
 
   & .top-section {
     // position: relative;
-    // background-color: black;
   }
 
   & .search-frm {
@@ -117,25 +113,11 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     }
   }
 
-  // & .sidebar-driver {
-  //   width: 100%;
-  //   height: 1px;
-  //   border-radius: 1px;
-  //   background: #333;
-  //   margin-bottom: 10px;
-  // }
-
-  // & .driver {
-  //   width: 100%;
-  //   height: 1px;
-  //   border-radius: 1px;
-  //   background: #333;
-  //   // margin-bottom: 10px;
-  // }
+  & .sidebar-menu {
+    color: ${({ theme }) => theme.text};
+  }
 
   & .sidebar-up-driver {
-    // {.driver}
-    // margin-bottom: 10px;
     width: 100%;
     height: 1px;
     border-radius: 1px;
@@ -173,13 +155,3 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     }
   }
 `;
-
-// const Container = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: 30vh;
-//   background: ${(props) => props.theme.background};
-//   color: ${(props) => props.theme.text};
-// `;
-// const SidebarWrap = styled.div``;
