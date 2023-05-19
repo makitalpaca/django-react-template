@@ -25,9 +25,11 @@ export const Sidebar: FC = () => {
         {/* eslint-disable-next-line */}
         <div onClick={showSidebar} className="sidebar-open">
           {sidebar ? (
-            <AiOutlineMenuFold color="icon-color" size="2rem" />
+            // <AiOutlineMenuFold color="icon-color" size="2rem" />
+            <AiOutlineMenuFold size="2rem" />
           ) : (
-            <AiOutlineMenuUnfold color="icon-color" size="2rem" />
+            // <AiOutlineMenuUnfold color="icon-color" size="2rem" />
+            <AiOutlineMenuUnfold size="2rem" />
           )}
         </div>
         <div className="top-section"></div>
@@ -39,14 +41,12 @@ export const Sidebar: FC = () => {
           <input type="text" placeholder="search" className="search-txt" />
         </div>
         <div className="sidebar-up-driver"></div>
-        <div className="sidebar-menu">
-          {SidebarData.map((item, index) => {
-            return <SidebarMenu item={item} key={index} />;
-          })}
-        </div>
+
+        {SidebarData.map((item, index) => {
+          return <SidebarMenu item={item} key={index} />;
+        })}
 
         <ThemeSwitchButton />
-        {/* <button onClick={setColorMode}>theme!</button> */}
 
         <div className="sidebar-low-driver"></div>
         <div className="sidebar-foot">
@@ -74,7 +74,7 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     display: flex;
     margin-left: 5px;
     cursor: pointer;
-    icon-color: ${(props) => props.theme.icon};
+    // icon-color: ${(props) => props.theme.icon};
   }
 
   & .top-section {

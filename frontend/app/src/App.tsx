@@ -8,7 +8,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { useTheme } from './components/Theme/themeContext';
 
-import Overview from './pages/Overview';
+import Contents from './pages/Contents';
+import Dashborad from './pages/Dashborad';
+import Pareo from './pages/Pareo';
 import Settings from './pages/Settings';
 
 const App: FC = () => {
@@ -26,7 +28,9 @@ const App: FC = () => {
         </Toggle>
 
         <Routes>
-          <Route path="/overview" element={<Overview />} />
+          <Route path="/dashboard" element={<Dashborad />} />
+          <Route path="/contents" element={<Contents />} />
+          <Route path="/pareo" element={<Pareo />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
