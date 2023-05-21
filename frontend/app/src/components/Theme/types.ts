@@ -12,5 +12,7 @@ declare module '@emotion/react' {
     background: string;
     text: string;
     icon: string;
+    toggle_background: string;
+    toggle_foreground: string;
   }
 }

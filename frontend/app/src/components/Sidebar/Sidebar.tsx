@@ -6,7 +6,7 @@ import {
   AiOutlineMenuFold,
   AiOutlineSearch,
 } from 'react-icons/ai';
-import { ThemeSwitchButton } from 'components/Theme/ThemeSwitchButton';
+import { ThemeSwitchToggle } from 'components/Theme/ThemeSwitchToggle';
 import logo from '../../assets/yadon.png';
 
 import { SidebarData } from './SidebarData';
@@ -25,10 +25,8 @@ export const Sidebar: FC = () => {
         {/* eslint-disable-next-line */}
         <div onClick={showSidebar} className="sidebar-open">
           {sidebar ? (
-            // <AiOutlineMenuFold color="icon-color" size="2rem" />
             <AiOutlineMenuFold size="2rem" />
           ) : (
-            // <AiOutlineMenuUnfold color="icon-color" size="2rem" />
             <AiOutlineMenuUnfold size="2rem" />
           )}
         </div>
@@ -43,10 +41,11 @@ export const Sidebar: FC = () => {
         <div className="sidebar-up-driver"></div>
 
         {SidebarData.map((item, index) => {
-          return <SidebarMenu item={item} key={index} />;
+          // return <SidebarMenu item={item} key={index} />;
+          return <SidebarMenu item={item} key={index} sidebar={sidebar} />;
         })}
 
-        <ThemeSwitchButton />
+        <ThemeSwitchToggle />
 
         <div className="sidebar-low-driver"></div>
         <div className="sidebar-foot">
@@ -110,9 +109,9 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     }
   }
 
-  & .sidebar-menu {
-    color: ${(props) => props.theme.text};
-  }
+  // & .sidebar-menu {
+  //   color: ${(props) => props.theme.text};
+  // }
 
   & .sidebar-up-driver {
     width: 100%;

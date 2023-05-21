@@ -7,6 +7,8 @@ const lightTheme: ThemeType = {
   background: '#c5c5c5',
   text: '#0e1013',
   icon: '#0e1013',
+  toggle_background: '#333333',
+  toggle_foreground: '#efefef',
 };
 
 const darkTheme: ThemeType = {
@@ -15,6 +17,8 @@ const darkTheme: ThemeType = {
   background: '#0e1013',
   text: '#e1e1e1',
   icon: '#e1e1e1',
+  toggle_background: '#efefef',
+  toggle_foreground: '#333333',
 };
 
 export const getTheme = (colorMode: ColorMode): ThemeType => {

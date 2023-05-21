@@ -1,18 +1,18 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { type SidebarItem } from './SidebarItem';
 
 type SidebarMenuProps = {
   item: SidebarItem;
+  sidebar: boolean;
 };
 
-export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
+export const SidebarMenu: FC<SidebarMenuProps> = ({ item, sidebar }) => {
   return (
     <>
-      <SidebarMenuLink>
-        <Link to={item.path} className="links">
+      <SidebarMenuLink sidebar={sidebar}>
+        <Link to={item.path}>
           <div className="sidebar-main-menu-icon">{item.icon}</div>
           <div className="sidebar-main-menu-label">{item.title}</div>
         </Link>
@@ -21,46 +21,37 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ item }) => {
   );
 };
 
-const SidebarMenuLink = styled.div`
-  overflow: hidden scroll;
+const SidebarMenuLink = styled.div<{ sidebar: boolean }>`
+  // overflow: hidden scroll;
 
-  & .links {
-    color: ${(props) => props.theme.text};
-    font-size: 15px;
-    text-decoration: none;
-    font-weight: 600; // semi-bold
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 10px 0;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600; // semi-bold
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 0;
 
-    & .sidebar-main-menu-icon {
-      // display: inline-block;
-      // width: 40px;
-      // font-size: 25px;
-      // line-height: 40px;
-      // text-align: center;
-      // padding-top: 3px;
-      display: inline-flex;
-      height:40px;
-      width: 40px;
-      font-size: 25px;
-      justify-content:center;
-      align-items:center;
-    }
+  & .sidebar-main-menu-icon {
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+  }
 
-    & .sidebar-main-menu-label {
-      // position: absolute;
-      // display: inline-block;
-      // line-height: 40px;
-      // padding-left: 20px;
-      position:absolute;
-      display: inline-flex;
-      height:40px;
-      align-items:center;
-      padding-left: 20px;
-    }
+  & .sidebar-main-menu-label {
+    position: absolute;
+    display: inline-flex;
+    height: 40px;
+    align-items: center;
+    padding-left: 20px;
 
-    &:hover {
-      background-color:#333;
+    opacity: ${({ sidebar }) => (sidebar ? '1' : '0')};
+    transition: 50ms ease-in;
+  }
+
+  &:hover {
+    background-color: #333;
   }
 `;
