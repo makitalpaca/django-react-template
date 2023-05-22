@@ -11,6 +11,7 @@ import logo from '../../assets/yadon.png';
 
 import { SidebarData } from './SidebarData';
 import { SidebarMenu } from './SidebarMenu';
+import { SidebarSecondData } from './SidebarSecondData';
 
 export const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -35,19 +36,25 @@ export const Sidebar: FC = () => {
           <button className="search-btn">
             <AiOutlineSearch color="white" size="1.5rem" />
           </button>
-
           <input type="text" placeholder="search" className="search-txt" />
         </div>
+
         <div className="sidebar-up-driver"></div>
 
         {SidebarData.map((item, index) => {
-          // return <SidebarMenu item={item} key={index} />;
           return <SidebarMenu item={item} key={index} sidebar={sidebar} />;
         })}
 
-        <ThemeSwitchToggle />
+        <div className="sidebar-up-driver"></div>
+
+        {SidebarSecondData.map((item, index) => {
+          return <SidebarMenu item={item} key={index} sidebar={sidebar} />;
+        })}
 
         <div className="sidebar-low-driver"></div>
+
+        <ThemeSwitchToggle sidebar={sidebar} />
+
         <div className="sidebar-foot">
           <div className="logo">
             <img src={logo} className="logo-img" alt="logo-img" />
@@ -109,25 +116,23 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
     }
   }
 
-  // & .sidebar-menu {
-  //   color: ${(props) => props.theme.text};
-  // }
-
   & .sidebar-up-driver {
     width: 100%;
     height: 1px;
-    border-radius: 1px;
+    // border-radius: 1px;
     background: #333;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    margin: 10px 0;
   }
 
   & .sidebar-low-driver {
     width: 100%;
     height: 1px;
-    border-radius: 1px;
+    // border-radius: 1px;
     background: #333;
-    margin-top: 300px;
-    bottom: 0;
+    margin: 10px 0;
+    // margin-top: 300px;
+    // bottom: 0;
   }
 
   & .sidebar-foot {

@@ -21,12 +21,12 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ item, sidebar }) => {
   );
 };
 
-const SidebarMenuLink = styled.div<{ sidebar: boolean }>`
+const SidebarMenuLink = styled.div<SidebarMenuProps>`
   // overflow: hidden scroll;
 
   font-size: 15px;
   text-decoration: none;
-  font-weight: 600; // semi-bold
+  font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
   margin: 10px 0;
