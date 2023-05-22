@@ -4,16 +4,31 @@
   margin: 0;
 }
 
-html,
+/* html,
 body {
   color: #fff;
-}
+} */
 
 .overview {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 10vh;
   font-size: 2rem;
-  color: black;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+}
+
+a {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  color: unset;
+  vertical-align: baseline;
+  background: transparent;
 }

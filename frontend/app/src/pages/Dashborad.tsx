@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 // import { useTheme } from '../components/Theme/themeContext';
 
-const Settings: FC = () => {
+const Dashborad: FC = () => {
   // const { colorMode, setColorMode } = useTheme();
 
   // return (
@@ -14,9 +14,9 @@ const Settings: FC = () => {
 
   return (
     <>
-      <div className="overview">Settings!</div>;
+      <div className="overview">Dashborad!</div>;
     </>
   );
 };
 
-export default Settings;
+export default Dashborad;
